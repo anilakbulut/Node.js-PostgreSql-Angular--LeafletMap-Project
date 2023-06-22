@@ -1,0 +1,41 @@
+<div class="container" >
+  <div class="row">
+    <div class="col">
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+    <div class="col-5">
+      <button type="button" class="btn btn-primary"(click)="onSave()">Noktayı Kaydet</button>
+      <button type="button" class="btn btn-secondary download"(click)="exportTojson()">İndir</button>
+      <table class="table">
+        <thead>
+          <tr>
+            <!-- <th scope="col">id</th> -->
+            <th scope="col">lat</th>
+            <th scope="col">lng</th>
+            <th scope="col">datetime</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of mapLocations">
+            <!-- <th scope="row">{{list.id}}</th> -->
+            <td>{{list.lat}}</td>
+            <td>{{list.lng}}</td>
+            <td>{{list.datetime}}</td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="deleteLocation(list.id)">Delete</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="addMarker(list.lat,list.lng)">Add</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
